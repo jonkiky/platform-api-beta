@@ -144,6 +144,14 @@ object Objects extends Logging {
     )
   )
 
+  // hpo
+  implicit lazy val hpoImp: ObjectType[Backend, HPO] = deriveObjectType(
+    ObjectTypeDescription("HPO or phenotype entity"),
+    DocumentField("id", "Open Targets hpo id"),
+    DocumentField("name", "hopo name"),
+    DocumentField("description", "hpo description"),
+  )
+
   // disease
   implicit lazy val diseaseImp: ObjectType[Backend, Disease] = deriveObjectType(
     ObjectTypeDescription("Disease or phenotype entity"),
@@ -327,6 +335,7 @@ object Objects extends Logging {
     DocumentField("id", "ECO term id"),
     DocumentField("label", "ECO term label")
   )
+
 
   implicit lazy val reactomeImp: ObjectType[Backend, Reactome] =
     deriveObjectType[Backend, Reactome](

@@ -41,7 +41,8 @@ object GQLSchema {
     mousePhenotypeFetcher,
     otarProjectsFetcher,
     soTermsFetcher,
-    indicationFetcher
+    indicationFetcher,
+    hposFetcher
   )
 
   lazy val msearchResultType =
@@ -109,6 +110,11 @@ object GQLSchema {
         arguments = ensemblIds :: Nil,
         resolve = ctx => targetsFetcher.deferSeqOpt(ctx.arg(ensemblIds))
       ),
+      Field("hpo",
+        OptionType(hpoImp),
+        description = Some("Return a hpo"),
+        arguments = hpoId :: Nil,
+        resolve = ctx => hposFetcher.deferOpt(ctx.arg(hpoId))),
       Field("disease",
             OptionType(diseaseImp),
             description = Some("Return a Disease"),

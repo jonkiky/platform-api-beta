@@ -40,6 +40,7 @@ object Arguments {
     Argument("freeTextQuery", OptionInputType(StringType), description = "Query string")
   val efoId = Argument("efoId", StringType, description = "EFO ID")
   val efoIds = Argument("efoIds", ListInputType(StringType), description = "EFO ID")
+  val hpoId = Argument("hpoId", StringType, description = "hpo id")
   val ensemblId = Argument("ensemblId", StringType, description = "Ensembl ID")
   val ensemblIds =
     Argument("ensemblIds", ListInputType(StringType), description = "List of Ensembl IDs")
